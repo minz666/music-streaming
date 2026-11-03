@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Armbian 24/7 Music Streaming</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+<!-- Sidebar Menu Public -->
+<div id="sidebar-overlay" class="sidebar-overlay"></div>
+<div id="sidebar" class="sidebar">
+    <div class="sidebar-header">
+        <h2>⚙️ MENU UTAMA</h2>
+        <button id="close-sidebar-btn" class="btn btn-sm btn-danger">✕</button>
+    </div>
+    <div class="sidebar-content">
+        <div class="card obs-box" style="margin-bottom: 15px;">
+            <h3 style="font-size: 0.75rem;">🔗 URL STREAM (OBS / CLIENT):</h3>
+            <div class="obs-url" id="stream-url">Memuat URL...</div>
+            <button id="copy-btn" class="btn btn-full btn-yellow" style="margin-top: 10px;">📋 COPY LINK STREAM</button>
+        </div>
+
+        <a href="/login" class="btn btn-full btn-dark">🔑 LOGIN ADMIN</a>
+
+        <hr class="divider">
+        <div class="sidebar-info">
+            <p><strong>Armbian Music Streaming</strong></p>
+            <p>Server Siaran Lokal 24/7 Non-Stop.</p>
+        </div>
+    </div>
+</div>
+
+<div class="container">
+    <div class="header header-flex">
+        <h1>📻 ARMBIAN 24/7 MUSIC STREAMING</h1>
+        <button id="open-sidebar-btn" class="btn btn-sm btn-dark">☰ MENU</button>
+    </div>
+
+    <!-- Clock Widget Jam & Tanggal -->
+    <div class="clock-card">
+        <div class="clock-time" id="clock-time">00:00:00</div>
+        <div class="clock-date" id="clock-date">Memuat tanggal...</div>
+    </div>
+
+    <!-- Main Player Card -->
+    <div class="card player-card">
+        <div class="now-playing-header">
+            <span class="live-dot"></span> LIVE BROADCAST
+        </div>
+
+        <!-- Pilihan Model Visualizer Equalizer (Dibuat Kompak) -->
+        <div class="vis-selector-box">
+            <label for="vis-mode-select">🎨 MODE EQ:</label>
+            <select id="vis-mode-select">
+                <option value="bars">NEUBRUTALISM BARS</option>
+                <option value="waveform">WAVEFORM LINE</option>
+                <option value="blocks">MATRIX LED</option>
+                <option value="circle">RADIAL CIRCLE</option>
+                <option value="mirror">MIRROR BARS</option>
+                <option value="dots">BOUNCING DOTS</option>
+                <option value="cyber">CYBER STROBE</option>
+            </select>
+        </div>
+
+        <div class="visualizer-container">
+            <canvas id="visualizer-canvas"></canvas>
+        </div>
+
+        <audio id="audio-player" src="/stream.mp3" crossorigin="anonymous" autoplay style="display: none;"></audio>
+        <button id="custom-play-btn" class="btn btn-full btn-play">▶ PUTAR STREAM</button>
+    </div>
+
+    <!-- Daftar File Musik -->
+    <div class="card playlist-card">
+        <h3>📋 DAFTAR LAGU DI SERVER</h3>
+        <div id="playlist-list">Memuat daftar lagu...</div>
+    </div>
+
+    <!-- Credit Footer -->
+    <div class="footer-credit">
+        made with ❤️ <a href="https://github.com/minz666" target="_blank" rel="noopener">Hendrik</a>
+    </div>
+</div>
+
+<script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>

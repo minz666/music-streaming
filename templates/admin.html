@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Dashboard Admin - Armbian Streamer</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+<!-- Sidebar Menu Admin -->
+<div id="admin-sidebar-overlay" class="sidebar-overlay"></div>
+<div id="admin-sidebar" class="sidebar">
+    <div class="sidebar-header">
+        <h2>⚙️ MENU ADMIN</h2>
+        <button id="close-admin-sidebar-btn" class="btn btn-sm btn-danger">✕</button>
+    </div>
+    <div class="sidebar-content">
+        <a href="/" class="btn btn-full btn-yellow" style="margin-bottom: 10px;">👁️ PREVIEW PUBLIC</a>
+        
+        <hr class="divider">
+        
+        <div class="card" style="background: #a8dede; padding: 12px; margin-bottom: 15px;">
+            <h3 style="font-size: 0.75rem; margin-bottom: 8px;">🔐 GANTI KREDENSIAL ADMIN</h3>
+            <form id="change-credentials-form">
+                <div class="form-group" style="margin-bottom: 8px;">
+                    <label for="new-username" style="font-size: 0.7rem;">USERNAME BARU:</label>
+                    <input type="text" id="new-username" required style="padding: 6px; font-size: 0.75rem;">
+                </div>
+                <div class="form-group" style="margin-bottom: 10px;">
+                    <label for="new-password" style="font-size: 0.7rem;">PASSWORD BARU:</label>
+                    <input type="password" id="new-password" required style="padding: 6px; font-size: 0.75rem;">
+                </div>
+                <button type="submit" class="btn btn-full btn-green">SIMPAN AKUN</button>
+            </form>
+        </div>
+
+        <a href="/logout" class="btn btn-full btn-danger">🚪 LOGOUT</a>
+    </div>
+</div>
+
+<div class="container">
+    <div class="header header-flex">
+        <h1>⚙️ CONTROL ADMIN</h1>
+        <button id="open-admin-sidebar-btn" class="btn btn-sm btn-dark">☰ MENU</button>
+    </div>
+
+    <!-- Clock Widget Jam & Tanggal -->
+    <div class="clock-card">
+        <div class="clock-time" id="clock-time">00:00:00</div>
+        <div class="clock-date" id="clock-date">Memuat tanggal...</div>
+    </div>
+
+    <!-- Status Streaming & Uptime -->
+    <div class="card uptime-card">
+        <h3>⏱️ DURASI STREAMING BERJALAN (UPTIME):</h3>
+        <div class="uptime-badge" id="uptime-display">Memuat uptime...</div>
+    </div>
+
+    <!-- Kontrol Pemutaran -->
+    <div class="card control-card">
+        <h3>🎛️ KONTROL STREAMING LAGU</h3>
+        <div class="now-playing-box">
+            <span>SEDANG DIPUTAR SERVER:</span>
+            <strong id="admin-now-playing">Memuat...</strong>
+        </div>
+        
+        <div class="control-btns">
+            <button id="pause-btn" class="btn btn-yellow">⏸️ JEDA LAGU</button>
+            <button id="skip-btn" class="btn btn-yellow">⏭️ SKIP LAGU</button>
+        </div>
+    </div>
+
+    <!-- Tambah Musik Ke Direktori -->
+    <div class="card upload-card">
+        <h3>📂 TAMBAH MUSIK KE DIREKTORI</h3>
+        <form class="upload-form" id="admin-upload-form">
+            <input type="file" id="file-input" accept="audio/*" required>
+            <button type="submit" class="btn">UPLOAD AUDIO</button>
+        </form>
+    </div>
+
+    <!-- Manajemen Playlist Lagu -->
+    <div class="card playlist-card">
+        <h3>📋 MANAJEMEN BERKAS AUDIO (KONTROL & HAPUS)</h3>
+        <div id="admin-playlist-list">Memuat daftar lagu...</div>
+    </div>
+
+    <!-- Credit Footer -->
+    <div class="footer-credit">
+        made with ❤️ <a href="https://github.com/minz666" target="_blank" rel="noopener">Hendrik</a>
+    </div>
+</div>
+
+<script src="{{ url_for('static', filename='admin.js') }}"></script>
+</body>
+</html>

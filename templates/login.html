@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Login Admin - Armbian Streamer</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+<div class="container container-sm">
+    <div class="header">
+        <h1>🔑 LOGIN DASHBOARD ADMIN</h1>
+    </div>
+
+    <div class="card login-card">
+        {% if error %}
+        <div class="alert-error">{{ error }}</div>
+        {% endif %}
+
+        <form action="/login" method="POST" class="login-form">
+            <div class="form-group">
+                <label for="username">USERNAME:</label>
+                <input type="text" id="username" name="username" required autocomplete="off">
+            </div>
+            <div class="form-group">
+                <label for="password">PASSWORD:</label>
+                <input type="password" id="password" name="password" required>
+            </div>
+            <button type="submit" class="btn btn-full">LOGIN KE DASHBOARD</button>
+        </form>
+        <div style="margin-top: 15px; text-align: center;">
+            <a href="/" class="back-link">← Kembali ke Player Public</a>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>
