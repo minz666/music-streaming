@@ -121,5 +121,7 @@ sudo systemctl status music-streaming
    http://IP_STB_ARMBIAN:5000/stream.mp3
 
  * Klik OK. Audio siaran akan langsung masuk secara realtime ke mixer OBS.
+
+
 📝 Lisensi & Kredit
-Made with ❤️ by hendrik
+Made with ❤️ by [**MinZ**](https://github.com/minz666)
